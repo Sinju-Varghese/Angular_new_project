@@ -23,7 +23,7 @@
 
 <button class="btn btn-primary" (click)="handleClick1($event)">Click Me</button>
  -->
-
+<!-- 
  <button (click)="handleClickRed()">RED</button>
 <button (click)="handleClickGreen()">GREEN</button>
 <button (click)="handleClickBlue()">BLUE</button>
@@ -55,4 +55,124 @@
       'transform': 'rotate(' + rotation + 'deg)'
     }">
   </div>
+</div> -->
+
+<!-- <h2 [ngClass]="isSucccess ? 'color-primary' : 'color-danger'">
+  This is the demo of ng directive in Angular
+</h2> -->
+<!-- 
+<div>
+  <label >First Name</label>
+  <input name="firstName" [(ngModel)]="model.firstName"/>
+</div>
+<div>
+  <label >Last Name</label>
+  <input name="lastName" [(ngModel)]="model.lastName"/>
+</div>
+
+<h2>Hello : {{model.firstName}} {{model.lastName}}</h2> -->
+
+
+<style>
+  .form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+
+  .form-container input,
+  .form-container select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .form-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+
+  .output {
+    max-width: 500px;
+    margin: 20px auto;
+    font-size: 18px;
+    background-color: #e6f2ff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #007bff;
+  }
+</style>
+
+<div class="form-container">
+  <form (ngSubmit)="generateSentence()">
+    <label>First Name:
+      <input type="text" [(ngModel)]="student.firstName" name="firstName">
+    </label>
+
+    <label>Last Name:
+      <input type="text" [(ngModel)]="student.lastName" name="lastName">
+    </label>
+
+    <label>Class:
+      <select [(ngModel)]="student.class" name="class">
+        <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+      </select>
+    </label>
+
+    <label>Age:
+      <input type="number" [(ngModel)]="student.age" name="age">
+    </label>
+
+    <label>Mark 1:
+      <input type="number" [(ngModel)]="student.mark1" name="mark1">
+    </label>
+
+    <label>Mark 2:
+      <input type="number" [(ngModel)]="student.mark2" name="mark2">
+    </label>
+
+    <label>Mark 3:
+      <input type="number" [(ngModel)]="student.mark3" name="mark3">
+    </label>
+
+    <label>Favorite Color:
+      <input type="text" [(ngModel)]="student.favColor" name="favColor">
+    </label>
+
+    <label>Gender:
+      <select [(ngModel)]="student.gender" name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </label>
+
+    <button type="submit">Generate</button>
+  </form>
+</div>
+
+<div class="output" *ngIf="sentence">
+  {{ sentence }}
 </div>
